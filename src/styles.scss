@@ -1,0 +1,25 @@
+@import '~@mbkit/theme/dist/theme.scss';
+
+body, #root {
+  min-height: 100vh;
+  background: $neutral-5;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.spacer {
+  margin: .5em 0;
+}
+
+.label-full-width {
+  display: block;
+  margin: .5em 0;
+}
