@@ -228,6 +228,7 @@ export function Board(props: BoardProps) {
                       // @ts-ignore */}
                         <div
                           className={`board__column`}
+                          // @ts-ignore
                           type="column"
                           ref={colProvided.innerRef}
                           {...colProvided.dragHandleProps}
