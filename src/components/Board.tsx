@@ -223,71 +223,75 @@ export function Board(props: BoardProps) {
                     index={columnIndex}
                   >
                     {colProvided => (
-                      <div
-                        className={`board__column`}
-                        type="column"
-                        ref={colProvided.innerRef}
-                        {...colProvided.dragHandleProps}
-                        {...colProvided.draggableProps}
-                      >
-                        <div>
-                          {items.length}
-                          <Heading as="h2">{column.name}</Heading>
-                          <Button
-                            variant="icon"
-                            onClick={() => handleAddNewLogItem(column.id)}
-                          >
-                            <IconAdd
-                              width={24}
-                              height={24}
-                              aria-label="Add log item"
-                            />
-                          </Button>
-                          <Menu>
-                            <MenuButton>
-                              <GlyphOther aria-label="Column Options" />
-                            </MenuButton>
-                            <MenuList>
-                              <MenuItem
-                                onSelect={() => {
-                                  setNewColumnName({
-                                    value: column.name,
-                                    id: column.id
-                                  });
-                                  setShowAddColumn(true);
-                                }}
-                              >
-                                Edit Name
-                              </MenuItem>
-                              <MenuItem
-                                onSelect={() => handleDeleteColumn(column.id)}
-                              >
-                                Delete
-                              </MenuItem>
-                            </MenuList>
-                          </Menu>
-                        </div>
-
-                        <Droppable droppableId={column.id} type="item">
-                          {provided => (
-                            <div
-                              {...provided.droppableProps}
-                              ref={provided.innerRef}
-                              className="board__column__drop"
+                      <>
+                        {/* 
+                      // @ts-ignore */}
+                        <div
+                          className={`board__column`}
+                          type="column"
+                          ref={colProvided.innerRef}
+                          {...colProvided.dragHandleProps}
+                          {...colProvided.draggableProps}
+                        >
+                          <div>
+                            {items.length}
+                            <Heading as="h2">{column.name}</Heading>
+                            <Button
+                              variant="icon"
+                              onClick={() => handleAddNewLogItem(column.id)}
                             >
-                              {items.map((item, i) => (
-                                <BoardItem
-                                  editLogItem={setLogBeingEdited}
-                                  item={item}
-                                  i={i}
-                                  key={item.id}
-                                />
-                              ))}
-                              {provided.placeholder}
-                            </div>
-                          )}
-                        </Droppable>
-                      </div>
+                              <IconAdd
+                                width={24}
+                                height={24}
+                                aria-label="Add log item"
+                              />
+                            </Button>
+                            <Menu>
+                              <MenuButton>
+                                <GlyphOther aria-label="Column Options" />
+                              </MenuButton>
+                              <MenuList>
+                                <MenuItem
+                                  onSelect={() => {
+                                    setNewColumnName({
+                                      value: column.name,
+                                      id: column.id
+                                    });
+                                    setShowAddColumn(true);
+                                  }}
+                                >
+                                  Edit Name
+                                </MenuItem>
+                                <MenuItem
+                                  onSelect={() => handleDeleteColumn(column.id)}
+                                >
+                                  Delete
+                                </MenuItem>
+                              </MenuList>
+                            </Menu>
+                          </div>
+
+                          <Droppable droppableId={column.id} type="item">
+                            {provided => (
+                              <div
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                                className="board__column__drop"
+                              >
+                                {items.map((item, i) => (
+                                  <BoardItem
+                                    editLogItem={setLogBeingEdited}
+                                    item={item}
+                                    i={i}
+                                    key={item.id}
+                                  />
+                                ))}
+                                {provided.placeholder}
+                              </div>
+                            )}
+                          </Droppable>
+                        </div>
+                      </>
                     )}
                   </Draggable>
                 );
