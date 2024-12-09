@@ -34,7 +34,7 @@
     "@types/react-dom": "16.9.5",
     "@types/react-router": "5.1.4",
     "js-cookie": "2.2.1",
-    "nanoid": "2.1.11",
+    "nanoid": "3.3.8",
     "node-sass": "4.13.1",
     "react": "^16.12.0",
     "react-beautiful-dnd": "13.0.0",
